@@ -202,10 +202,10 @@ class DecisionTree:
         Output: node (Node)
         """
 
-        x_filtered_left = node.x[node.x[node.feature] <= node.threshold].reset_index(drop=True)
-        x_filtered_right = node.x[node.x[node.feature] > node.threshold].reset_index(drop=True)
-        y_filtered_left = node.y[node.x[node.feature] <= node.threshold].reset_index(drop=True)
-        y_filtered_right = node.y[node.x[node.feature] > node.threshold].reset_index(drop=True)
+        x_filtered_left = node.x[node.x[node.feature] <= node.threshold]
+        x_filtered_right = node.x[node.x[node.feature] > node.threshold]
+        y_filtered_left = node.y[node.x[node.feature] <= node.threshold]
+        y_filtered_right = node.y[node.x[node.feature] > node.threshold]
 
         node.left = Node(x=x_filtered_left, y=y_filtered_left, feature_list=node.feature_list)
         node.right = Node(x=x_filtered_right, y=y_filtered_right, feature_list=node.feature_list)
